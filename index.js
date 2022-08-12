@@ -228,9 +228,6 @@ module.exports = function (params, opts) {
           .waitFor('functionActive', { FunctionName: functionName })
           .promise();
         printVersion(functionConfiguration);
-        gutil.log(
-          `updating alias "${opts.alias.name}" for function "${functionName}"`
-        );
         await updateOrCreateAlias(functionConfiguration);
         done();
       } catch (error) {
@@ -263,9 +260,6 @@ module.exports = function (params, opts) {
             .waitFor('functionActive', { FunctionName: functionName })
             .promise();
           printVersion(functionConfiguration);
-          gutil.log(
-            `updating alias "${opts.alias.name}" for function "${functionName}"`
-          );
           await updateOrCreateAlias(functionConfiguration);
           gutil.log(`waiting for update to complete...`);
           await lambda
